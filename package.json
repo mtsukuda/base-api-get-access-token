@@ -1,0 +1,26 @@
+{
+  "name": "base-link-api",
+  "version": "0.0.9",
+  "description": "Getting BASE Access Token API",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "serverless deploy --aws-profile serverless-deployment",
+    "clean": "serverless remove --aws-profile serverless-deployment",
+    "test": "serverless invoke -f get -d '{\"code\":\"__your_code_here__\"}'",
+    "testWeb": "curl -v -G -d code=__your_code_here__ https://someapi.execute-api.ap-northeast-1.amazonaws.com/dev/get-access-token"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mtsukuda/base-api-get-access-token.git"
+  },
+  "author": "Mats Tsukuda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mtsukuda/base-api-get-access-token/issues"
+  },
+  "homepage": "https://github.com/mtsukuda/base-api-get-access-token#readme",
+  "dependencies": {
+    "form-data": "^3.0.0",
+    "node-fetch": "^2.6.1"
+  }
+}

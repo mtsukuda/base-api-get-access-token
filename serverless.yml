@@ -1,0 +1,32 @@
+# https://docs.serverless.com
+service: base-link-api
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: ${opt:stage, 'dev'}
+  region: ap-northeast-1
+  apiName: ${self:service}-${self:provider.stage}
+
+functions:
+  get-access-token:
+    handler:  handler.getAccessToken
+    name: ${self:service}-get-access-token-${self:provider.stage}
+    events:
+      - http:
+          method: get
+          path: get-access-token
+          integration: lambda
+          cors: true
+  refresh-token:
+    handler:  refleshToken.func
+    name: ${self:service}-refresh-token-${self:provider.stage}
+    events:
+      - http:
+          method: get
+          path: refresh-token
+          integration: lambda
+          cors: true
