@@ -10,7 +10,7 @@ const fetch = require('node-fetch');
  * @param event
  * @returns {Promise<{body: string, statusCode: number}>}
  */
-module.exports.getAccessToken = async event => {
+module.exports.func = async event => {
   console.log(event);
   console.log(event.query);
   if (event.query === undefined) {
