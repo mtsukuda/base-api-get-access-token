@@ -1,6 +1,11 @@
 'use strict';
 
 /**
+ * @type {{client_id: string, client_secret: string, default_redirect_uri: string}}
+ */
+const baseKeys = require('base-config.json');
+
+/**
  * packages
  */
 const FormData = require('form-data');
@@ -32,10 +37,10 @@ module.exports.func = async event => {
 
   const params = new FormData();
   params.append('grant_type', 'authorization_code');
-  params.append('client_id', '__your_client_id__');
-  params.append('client_secret', '__your_client_secret__');
+  params.append('client_id', baseKeys.client_id);
+  params.append('client_secret', baseKeys.client_secret);
   params.append('code', code);
-  params.append('redirect_uri', 'https://redirect.com/');
+  params.append('redirect_uri', baseKeys.default_redirect_uri);
 
   let statusCode = 500;
   let body = JSON.stringify('500 Internal Server Error');
