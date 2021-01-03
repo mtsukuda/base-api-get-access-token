@@ -1,8 +1,8 @@
 {
   "name": "base-link-api",
   "version": "0.0.9",
-  "description": "Getting BASE Access Token API",
-  "main": "handler.js",
+  "description": "BASE link API",
+  "main": "accessToken.js",
   "scripts": {
     "deploy": "serverless deploy --aws-profile serverless-deployment",
     "clean": "serverless remove --aws-profile serverless-deployment",

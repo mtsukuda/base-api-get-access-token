@@ -12,13 +12,13 @@ provider:
   apiName: ${self:service}-${self:provider.stage}
 
 functions:
-  get-access-token:
-    handler:  handler.getAccessToken
-    name: ${self:service}-get-access-token-${self:provider.stage}
+  access-token:
+    handler:  accessToken.func
+    name: ${self:service}-access-token-${self:provider.stage}
     events:
       - http:
           method: get
-          path: get-access-token
+          path: access-token
           integration: lambda
           cors: true
   refresh-token:
