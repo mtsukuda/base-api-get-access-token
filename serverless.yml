@@ -22,7 +22,7 @@ functions:
           integration: lambda
           cors: true
   refresh-token:
-    handler:  refleshToken.func
+    handler:  refreshToken.func
     name: ${self:service}-refresh-token-${self:provider.stage}
     events:
       - http:
