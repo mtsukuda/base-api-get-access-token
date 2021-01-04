@@ -4,7 +4,7 @@
   "description": "BASE link API",
   "main": "accessToken.js",
   "scripts": {
-    "deploy": "serverless deploy --aws-profile serverless-deployment",
+    "deploy": "serverless deploy -v",
     "clean": "serverless remove --aws-profile serverless-deployment",
     "test": "serverless invoke -f get -d '{\"code\":\"__your_code_here__\"}'",
     "testWeb": "curl -v -G -d code=__your_code_here__ https://yourname.execute-api.ap-northeast-1.amazonaws.com/dev/access-token"
