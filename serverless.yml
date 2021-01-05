@@ -30,3 +30,12 @@ functions:
           path: refresh-token
           integration: lambda
           cors: true
+  user:
+    handler: user.func
+    name: ${self:service}-user-${self:provider.stage}
+    events:
+      - http:
+          method: get
+          path: user
+          integration: lambda
+          cors: true
