@@ -6,6 +6,12 @@
 const baseKeys = require('base-config.json');
 
 /**
+ * packages
+ */
+const FormData = require('form-data');
+const fetch = require('node-fetch');
+
+/**
  * @param event
  * @returns {Promise<{body: string, statusCode: number}>}
  */
