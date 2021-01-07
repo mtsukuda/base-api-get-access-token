@@ -3,7 +3,7 @@
 /**
  * @type {{client_id: string, client_secret: string, default_redirect_uri: string}}
  */
-const baseKeys = require('base-config.json');
+const baseKeys = require('../base-config');
 
 /**
  * packages
@@ -25,21 +25,21 @@ module.exports.func = async event => {
       body: JSON.stringify('400 Bad Request'),
     };
   }
-  if (event.query.token === undefined) {
+  if (event.query.code === undefined) {
     console.error("Could not find code.");
     return {
       statusCode: 400,
       body: JSON.stringify('400 Bad Request (1)'),
     };
   }
-  let refreshToekn = event.query.token;
-  console.log(refreshToekn);
+  let code = event.query.code;
+  console.log(code);
 
   const params = new FormData();
-  params.append('grant_type', 'refresh_token');
+  params.append('grant_type', 'authorization_code');
   params.append('client_id', baseKeys.client_id);
   params.append('client_secret', baseKeys.client_secret);
-  params.append('refresh_token', refreshToekn);
+  params.append('code', code);
   params.append('redirect_uri', baseKeys.default_redirect_uri);
 
   let statusCode = 500;

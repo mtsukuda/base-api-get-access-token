@@ -2,7 +2,7 @@
   "name": "base-link-api",
   "version": "0.0.9",
   "description": "BASE link API",
-  "main": "accessToken.js",
+  "main": "src/accessToken.js",
   "scripts": {
     "deploy": "serverless deploy -v",
     "clean": "serverless remove --aws-profile serverless-deployment",
