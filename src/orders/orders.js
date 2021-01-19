@@ -4,6 +4,7 @@
  * packages
  */
 const fetch = require('node-fetch');
+const _orders = require('./_orders');
 
 /**
  * @param event
@@ -71,5 +72,5 @@ module.exports.func = async event => {
  * @returns {*}
  */
 function dataPreProcessing (data) {
-  return data;
+  return _orders.ordersPreProcessing(data);
 }
