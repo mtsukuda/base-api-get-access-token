@@ -40,6 +40,7 @@ module.exports.func = async event => {
 
   let statusCode = 500;
   let body = JSON.stringify('500 Internal Server Error');
+  let description = null;
 
   await fetch('https://api.thebase.in/1/orders/detail/' + uniqueKey, {
     method: 'GET',
@@ -52,16 +53,31 @@ module.exports.func = async event => {
       console.log(data);
       if (data.error) throw data;
       statusCode = 200;
-      body = data;
+      body = dataPreProcessing(data);
     })
     .catch(err => {
       console.error(err);
       statusCode = 400;
       body = JSON.stringify('400 Bad Request (2)');
+      description = err;
     });
+
+  if (description === null)
+    return {
+      statusCode: statusCode,
+      body: body,
+    };
 
   return {
     statusCode: statusCode,
     body: body,
   };
 };
+
+/**
+ * @param data
+ * @returns {*}
+ */
+function dataPreProcessing (data) {
+  return data;
+}

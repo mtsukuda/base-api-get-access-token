@@ -1,5 +1,0 @@
-{
-  "client_id": "__your_client_id__",
-  "client_secret": "__your_client_secret__",
-  "default_redirect_uri": "https://default.mydomain.com/"
-}
