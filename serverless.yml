@@ -13,7 +13,7 @@ provider:
 
 functions:
   access-token:
-    handler:  accessToken.func
+    handler:  src/accessToken.func
     name: ${self:service}-access-token-${self:provider.stage}
     events:
       - http:
@@ -22,7 +22,7 @@ functions:
           integration: lambda
           cors: true
   refresh-token:
-    handler:  refreshToken.func
+    handler:  src/refreshToken.func
     name: ${self:service}-refresh-token-${self:provider.stage}
     events:
       - http:
@@ -31,11 +31,38 @@ functions:
           integration: lambda
           cors: true
   user:
-    handler: user.func
+    handler: src/user.func
     name: ${self:service}-user-${self:provider.stage}
     events:
       - http:
           method: get
           path: user
+          integration: lambda
+          cors: true
+  order:
+    handler: src/orders/orders.func
+    name: ${self:service}-orders-${self:provider.stage}
+    events:
+      - http:
+          method: get
+          path: orders
+          integration: lambda
+          cors: true
+  next-order:
+    handler: src/orders/next.func
+    name: ${self:service}-orders-next-${self:provider.stage}
+    events:
+      - http:
+          method: get
+          path: next-orders
+          integration: lambda
+          cors: true
+  order-detail:
+    handler: src/orders/detail.func
+    name: ${self:service}-orders-detail-${self:provider.stage}
+    events:
+      - http:
+          method: get
+          path: order-detail
           integration: lambda
           cors: true
